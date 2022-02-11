@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/models/siyer_details_model.dart';
+import 'package:news_app/ui/siyer_detail.dart';
 import '../constants/grid_shimmer.dart';
 import '../models/categories_model.dart';
 import '../models/news.dart';
@@ -36,36 +38,53 @@ class _SiyerAnaSayfaState extends State<SiyerAnaSayfa> {
                 shrinkWrap: true,
                 itemCount: news!.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    width: 100,
-                    decoration: BoxDecoration(color: Colors.grey.shade200),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            height: 250,
-                            child: Image.network(
-                              news[index]
-                                  .betterFeaturedImage!
-                                  .sourceUrl
-                                  .toString(),
-                              fit: BoxFit.cover,
-                            )),
-                        Container(
-                            padding: EdgeInsets.all(4),
-                            margin: EdgeInsets.all(4),
-                            color: Colors.amberAccent,
-                            child: Text(
-                              stripHtmlIfNeeded(
-                                  news[index].excerpt!.rendered.toString()),
-                              style: TextStyle(fontSize: 16),
-                            )),
-                        SizedBox(
-                          height: 10,
-                        )
-                      ],
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SiyerDetailsX(
+                                    id: news[index]
+                                        .content!
+                                        .rendered
+                                        .toString(),
+                                    image: news[index]
+                                        .betterFeaturedImage!
+                                        .sourceUrl
+                                        .toString(),
+                                  )));
+                    },
+                    child: Container(
+                      width: 100,
+                      decoration: BoxDecoration(color: Colors.grey.shade200),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: 250,
+                              child: Image.network(
+                                news[index]
+                                    .betterFeaturedImage!
+                                    .sourceUrl
+                                    .toString(),
+                                fit: BoxFit.cover,
+                              )),
+                          Container(
+                              padding: EdgeInsets.all(4),
+                              margin: EdgeInsets.all(4),
+                              color: Colors.amberAccent,
+                              child: Text(
+                                stripHtmlIfNeeded(
+                                    news[index].excerpt!.rendered.toString()),
+                                style: TextStyle(fontSize: 16),
+                              )),
+                          SizedBox(
+                            height: 10,
+                          )
+                        ],
+                      ),
                     ),
                   );
                 });

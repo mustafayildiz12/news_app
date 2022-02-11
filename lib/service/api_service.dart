@@ -6,6 +6,7 @@ import '../models/categories_model.dart';
 import '../models/news.dart';
 import '../models/news_categories_model.dart';
 import '../models/siyer_dergi_model.dart';
+import '../models/siyer_details_model.dart';
 import '../models/wordpress_model.dart';
 
 class Service {
@@ -72,6 +73,19 @@ class Service {
           l.map((model) => SiyerResponse.fromJson(model)));
 
       return posts;
+    } else {
+      throw ("Can't get the Articles");
+    }
+  }
+
+  Future<SiyerDetails> getSiyerDetails() async {
+    Response res = await http.get(
+        Uri.parse("https://kitabya.com/index.php/wp-json/wp/v2/posts/6631"));
+
+    if (res.statusCode == HttpStatus.ok) {
+      var l = json.decode(res.body);
+
+      return siyerDetailsFromJson(l);
     } else {
       throw ("Can't get the Articles");
     }
