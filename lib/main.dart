@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:news_app/prefs/theme_provider.dart';
 import 'package:news_app/ui/deco_news.dart';
+import 'package:news_app/ui/siyer_ana.dart';
+import 'package:news_app/ui/siyer_news.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
             themeMode: themeProvider.themeMode,
             theme: MyThemes.lightTheme,
             darkTheme: MyThemes.darkTheme,
-            home: const DecoNewsScreen(),
+            home: const SiyerAnaSayfa(),
           );
         });
   }

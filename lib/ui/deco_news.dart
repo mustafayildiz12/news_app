@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:news_app/ui/siyer_news.dart';
 import '../constants/deco_news_widgets.dart';
 import '../constants/drawer_list.dart';
 import '../constants/grid_shimmer.dart';
@@ -70,7 +71,7 @@ class _DecoNewsScreenState extends State<DecoNewsScreen> {
                 },
                 child: const TabBarView(
                   children: [
-                    MyNews(),
+                    SiyerNews(),
                     MyNews(),
                     Center(child: Text("Tab 3")),
                     Center(child: Text("Tab 4")),
