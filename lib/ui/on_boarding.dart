@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:news_app/ui/web_socket.dart';
+import 'package:news_app/ui/deco_news.dart';
 
 class OnBoardingPage extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => WebSocketDemo()),
+      MaterialPageRoute(builder: (_) => const DecoNewsScreen()),
     );
   }
 

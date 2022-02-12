@@ -26,9 +26,10 @@ class MyThemes {
       colorScheme: const ColorScheme.dark(),
       iconTheme: const IconThemeData(color: Colors.white, opacity: 0.8),
       indicatorColor: Colors.white,
-      primaryColorDark: Colors.white,
+      // primaryColorDark: Colors.white,
       shadowColor: Colors.white,
       splashColor: Colors.white70,
+      toggleableActiveColor: Color.fromARGB(255, 109, 1, 37),
       cardColor: const Color(0xFF1B1D29));
 
   static final lightTheme = ThemeData(
@@ -37,8 +38,12 @@ class MyThemes {
     colorScheme: const ColorScheme.light(),
     iconTheme: const IconThemeData(color: Color(0xFF7E7D95), opacity: 0.8),
     indicatorColor: const Color(0xFF7E7D95),
-    primaryColorDark: Colors.blueGrey.shade900,
+    //  primaryColorDark: Colors.blueGrey.shade900,
     cardColor: Colors.white,
+    toggleableActiveColor: Color(0xFF416788),
+    primaryColorDark: const Color(0xFFE0E0E2),
+
+    // toggleableActiveColor: Color.fromARGB(255, 206, 51, 103),
     shadowColor: Colors.grey.shade800, //label color
     splashColor: Colors.grey.shade400,
   );

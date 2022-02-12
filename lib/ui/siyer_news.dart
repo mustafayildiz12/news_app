@@ -33,9 +33,19 @@ class _SiyerCategoriesState extends State<SiyerCategories> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       alignment: Alignment.center,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromARGB(255, 226, 97, 140)),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Theme.of(context).toggleableActiveColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 3,
+                            blurRadius: 4,
+                            offset: const Offset(
+                                0, 2), // changes position of shadow
+                          ),
+                        ],
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,8 +54,9 @@ class _SiyerCategoriesState extends State<SiyerCategories> {
                             news[index].name.toString(),
                             textAlign: TextAlign.center,
                             style: TextStyle(
+                                fontWeight: FontWeight.w600,
                                 color: Theme.of(context).primaryColorDark,
-                                fontSize: 15),
+                                fontSize: 17),
                           ),
                         ],
                       ),
