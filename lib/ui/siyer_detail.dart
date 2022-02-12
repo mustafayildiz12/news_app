@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../models/siyer_dergi_model.dart';
-import '../models/siyer_details_model.dart';
 import '../service/api_service.dart';
 
 class SiyerDetailsX extends StatefulWidget {
@@ -25,20 +23,37 @@ class _SiyerDetailsXState extends State<SiyerDetailsX> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: 300,
-                child: Image.network(
-                  widget.image,
-                  fit: BoxFit.cover,
-                )),
-            Text(stripHtmlIfNeeded(widget.id!))
-          ],
-        ),
-      )),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                        //  height: MediaQuery.of(context).size.height / 3,
+                        child: Image.network(
+                      widget.image,
+                      fit: BoxFit.cover,
+                    )),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                          stripHtmlIfNeeded(
+                            widget.id!,
+                          ),
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColorDark,
+                              fontSize: 15)),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )),
     );
   }
 }

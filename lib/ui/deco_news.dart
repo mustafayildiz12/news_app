@@ -10,6 +10,7 @@ import '../constants/grid_shimmer.dart';
 import '../models/wordpress_model.dart';
 import '../service/api_service.dart';
 import 'my_news.dart';
+import 'siyer_ana.dart';
 
 class DecoNewsScreen extends StatefulWidget {
   const DecoNewsScreen({Key? key}) : super(key: key);
@@ -71,9 +72,9 @@ class _DecoNewsScreenState extends State<DecoNewsScreen> {
                 },
                 child: const TabBarView(
                   children: [
-                    SiyerNews(),
+                    SiyerCategories(),
                     MyNews(),
-                    Center(child: Text("Tab 3")),
+                    SiyerAnaSayfa(),
                     Center(child: Text("Tab 4")),
                     Center(child: Text("Tab 5")),
                     Center(child: Text("Tab 6")),

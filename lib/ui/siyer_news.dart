@@ -1,21 +1,15 @@
-import 'dart:ui';
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import '../constants/grid_shimmer.dart';
 import '../models/categories_model.dart';
-import '../models/news.dart';
-import '../models/siyer_dergi_model.dart';
 import '../service/api_service.dart';
-import 'detail_news.dart';
 
-class SiyerNews extends StatefulWidget {
-  const SiyerNews({Key? key}) : super(key: key);
+class SiyerCategories extends StatefulWidget {
+  const SiyerCategories({Key? key}) : super(key: key);
 
   @override
-  _SiyerNewsState createState() => _SiyerNewsState();
+  _SiyerCategoriesState createState() => _SiyerCategoriesState();
 }
 
-class _SiyerNewsState extends State<SiyerNews> {
+class _SiyerCategoriesState extends State<SiyerCategories> {
   Service client = Service();
 
   @override
@@ -28,24 +22,33 @@ class _SiyerNewsState extends State<SiyerNews> {
             AsyncSnapshot<List<SiyerCategoriesModel>> snapshot) {
           List<SiyerCategoriesModel>? news = snapshot.data;
           if (snapshot.hasData) {
-            return ListView.builder(
+            return GridView.builder(
                 shrinkWrap: true,
                 itemCount: news!.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
                 itemBuilder: (context, index) {
-                  return Container(
-                    width: 100,
-                    decoration: const BoxDecoration(color: Colors.indigo),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Card(
-                            color: Colors.amberAccent,
-                            child: Text(
-                              news[index].name.toString(),
-                              style: TextStyle(fontSize: 16),
-                            )),
-                      ],
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color.fromARGB(255, 226, 97, 140)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            news[index].name.toString(),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColorDark,
+                                fontSize: 15),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 });
