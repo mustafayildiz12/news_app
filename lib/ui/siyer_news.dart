@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/categories_model.dart';
 import '../service/api_service.dart';
+import 'package:flutter_offline/flutter_offline.dart';
 
 class SiyerCategories extends StatefulWidget {
   const SiyerCategories({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class _SiyerCategoriesState extends State<SiyerCategories> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                color: Theme.of(context).primaryColorDark,
+                                color: Theme.of(context).primaryColor,
                                 fontSize: 17),
                           ),
                         ],

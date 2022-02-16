@@ -26,25 +26,25 @@ class MyThemes {
       colorScheme: const ColorScheme.dark(),
       iconTheme: const IconThemeData(color: Colors.white, opacity: 0.8),
       indicatorColor: Colors.white,
-      // primaryColorDark: Colors.white,
+      primaryColorDark: Colors.white,
       shadowColor: Colors.white,
       splashColor: Colors.white70,
+      canvasColor: const Color(0xFF1B1D29),
+      dividerColor: const Color(0xFF7459BF),
       toggleableActiveColor: Color.fromARGB(255, 109, 1, 37),
       cardColor: const Color(0xFF1B1D29));
 
   static final lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    primaryColor: Colors.white,
-    colorScheme: const ColorScheme.light(),
-    iconTheme: const IconThemeData(color: Color(0xFF7E7D95), opacity: 0.8),
-    indicatorColor: const Color(0xFF7E7D95),
-    //  primaryColorDark: Colors.blueGrey.shade900,
-    cardColor: Colors.white,
-    toggleableActiveColor: Color(0xFF416788),
-    primaryColorDark: const Color(0xFFE0E0E2),
-
-    // toggleableActiveColor: Color.fromARGB(255, 206, 51, 103),
-    shadowColor: Colors.grey.shade800, //label color
-    splashColor: Colors.grey.shade400,
-  );
+      scaffoldBackgroundColor: Colors.white,
+      primaryColor: Colors.white,
+      colorScheme: const ColorScheme.light(),
+      iconTheme: const IconThemeData(color: Color(0xFF7E7D95), opacity: 0.8),
+      indicatorColor: const Color(0xFF7E7D95),
+      cardColor: Colors.white,
+      toggleableActiveColor: const Color(0xFF416788),
+      primaryColorDark: const Color(0xFF1B1D29),
+      canvasColor: const Color(0xFFD1D2D4),
+      shadowColor: Colors.grey.shade800, //label color
+      splashColor: Colors.grey.shade400,
+      dividerColor: const Color(0xFFF04646));
 }

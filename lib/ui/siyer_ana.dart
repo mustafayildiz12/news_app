@@ -39,7 +39,7 @@ class _SiyerAnaSayfaState extends State<SiyerAnaSayfa> {
                             MaterialPageRoute(
                                 builder: (context) => SiyerDetailsX(
                                       id: news[index]
-                                          .content!
+                                          .excerpt!
                                           .rendered
                                           .toString(),
                                       image: news[index]
