@@ -16,7 +16,12 @@ class _SiyerDetailsXState extends State<SiyerDetailsX> {
   Service client = Service();
 
   static String stripHtmlIfNeeded(String text) {
-    return text.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ' ');
+    return text
+        .replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ' ')
+        .replaceAll("(ra)", "")
+        .replaceAll("(hz)", "")
+        .replaceAll("(sas)", "")
+        .toLowerCase();
   }
 
   FlutterTts flutterTts = FlutterTts();
@@ -24,11 +29,11 @@ class _SiyerDetailsXState extends State<SiyerDetailsX> {
   Future _speak() async {
     await flutterTts.setLanguage("tr-TR");
 
-    await flutterTts.setSpeechRate(0.5);
+    await flutterTts.setSpeechRate(0.45);
 
     await flutterTts.setVolume(1.0);
 
-    await flutterTts.setPitch(1.0);
+    await flutterTts.setPitch(0.7);
     await flutterTts.speak(stripHtmlIfNeeded(widget.id!));
   }
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/categories_model.dart';
 import '../service/api_service.dart';
-import 'package:flutter_offline/flutter_offline.dart';
 
 class SiyerCategories extends StatefulWidget {
   const SiyerCategories({Key? key}) : super(key: key);
