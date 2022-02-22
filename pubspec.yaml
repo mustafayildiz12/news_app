@@ -44,6 +44,8 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.0
   flutter_tts: ^3.3.3
   flutter_offline: ^2.1.0
+  sizer: ^2.0.15
+  transformer_page_view_tv: ^0.1.7-nullsafety
 
 dev_dependencies:
   flutter_test:

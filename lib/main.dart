@@ -5,6 +5,7 @@ import 'package:news_app/ui/deco_news.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'ui/animation/animation.dart';
 import 'ui/on_boarding.dart';
 
 void main() {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
             themeMode: themeProvider.themeMode,
             theme: MyThemes.lightTheme,
             darkTheme: MyThemes.darkTheme,
-            home: const Splash(),
+            home: const AnimationsApi(),
           );
         });
   }
