@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 import 'package:transformer_page_view_tv/transformer_page_view.dart';
 
 import '../../models/siyer_dergi_model.dart';
@@ -44,7 +46,7 @@ class _AnimationsApiState extends State<AnimationsApi> {
     return TransformerPageView(
       scrollDirection: Axis.vertical,
       curve: Curves.easeInBack,
-      transformer: transformers[5],
+      transformer: transformers[1],
       itemCount: news.length,
       itemBuilder: (context, index) {
         return InkWell(
@@ -53,7 +55,7 @@ class _AnimationsApiState extends State<AnimationsApi> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => SiyerDetailsX(
-                          id: news[index].excerpt!.rendered.toString(),
+                          id: news[index].content!.rendered.toString(),
                           image: news[index]
                               .betterFeaturedImage!
                               .sourceUrl
@@ -62,33 +64,36 @@ class _AnimationsApiState extends State<AnimationsApi> {
           },
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
               color: Colors.blueGrey[900],
               image: DecorationImage(
                   image: NetworkImage(
                       news[index].betterFeaturedImage!.sourceUrl.toString()),
                   fit: BoxFit.cover,
                   colorFilter:
-                      const ColorFilter.mode(Colors.black45, BlendMode.darken)),
+                      const ColorFilter.mode(Colors.black38, BlendMode.darken)),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Spacer(
-                  flex: 2,
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  stripHtmlIfNeeded(
-                    news[index].title!.rendered.toString(),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Spacer(
+                    flex: 1,
                   ),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white, fontSize: 23),
-                ),
-                const Spacer(
-                  flex: 5,
-                ),
-              ],
+                  Text(
+                      stripHtmlIfNeeded(
+                        news[index].title!.rendered.toString(),
+                      ),
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.roboto(
+                        textStyle:
+                            TextStyle(color: Colors.white, fontSize: 28.sp),
+                      )),
+                  const Spacer(
+                    flex: 5,
+                  ),
+                ],
+              ),
             ),
           ),
         );

@@ -4,6 +4,7 @@ import 'package:news_app/prefs/theme_provider.dart';
 import 'package:news_app/ui/deco_news.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sizer/sizer.dart';
 
 import 'ui/animation/animation.dart';
 import 'ui/on_boarding.dart';
@@ -22,14 +23,16 @@ class MyApp extends StatelessWidget {
         create: (context) => ThemeProvider(),
         builder: (context, _) {
           final themeProvider = Provider.of<ThemeProvider>(context);
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
-            themeMode: themeProvider.themeMode,
-            theme: MyThemes.lightTheme,
-            darkTheme: MyThemes.darkTheme,
-            home: const AnimationsApi(),
-          );
+          return Sizer(builder: (context, orientation, deviceType) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Demo',
+              themeMode: themeProvider.themeMode,
+              theme: MyThemes.lightTheme,
+              darkTheme: MyThemes.darkTheme,
+              home: const AnimationsApi(),
+            );
+          });
         });
   }
 }
